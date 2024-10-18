@@ -12,7 +12,7 @@ ENV PATH=/root/.cargo/bin:${PATH}
 
 RUN cargo build --release
 
-FROM registry.access.redhat.com/ubi8/ubi-minimal
+FROM registry.access.redhat.com/ubi8/ubi-init
 
 RUN  microdnf update && microdnf install -y procps-ng
 
