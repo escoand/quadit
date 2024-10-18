@@ -14,9 +14,9 @@ RUN cargo build --release
 
 FROM registry.access.redhat.com/ubi8/ubi-init
 
-RUN  microdnf update && microdnf install -y procps-ng
+RUN  dnf update && dnf install -y procps-ng
 
 WORKDIR "/app"
 COPY --from=rhel8builder /app-build/target/release/quadit ./
 
-CMD [ "./quadit" ]
+ENTRYPOINT [ "./quadit" ]
